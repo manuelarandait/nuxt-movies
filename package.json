@@ -14,7 +14,7 @@
     "@babel/eslint-parser": "^7.23.9",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/eslint-module": "^4.1.0",
-    "eslint": "^8.56.0",
+    "eslint": "^8.22.0",
     "nuxt": "^3.9.3",
     "vite-plugin-vuetify": "^2.0.1",
     "vue": "^3.4.14",
