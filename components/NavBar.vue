@@ -2,12 +2,13 @@
   <v-navigation-drawer
     fixed
     app
-    width="100"
+    rail
     color="black"
   >
     <v-list
       class="d-flex align-center flex-column mb-6"
-      height="100%"
+      density="compact"
+      nav
     >
       <v-list-item
         class="ma-2 pa-2 my-auto"
@@ -32,3 +33,5 @@
     </v-list>
   </v-navigation-drawer>
 </template>
+<script setup lang="ts">
+</script>
