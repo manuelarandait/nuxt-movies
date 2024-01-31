@@ -88,10 +88,12 @@ function onTouchEnd() {
       </p>
       <v-sheet
         class="mx-auto"
-        @touchstart.native="onTouchStart"
-        @touchend.native="onTouchEnd"
       >
-        <v-slide-group>
+        <v-slide-group
+          show-arrows
+          @touchstart.native="onTouchStart"
+          @touchend.native="onTouchEnd"
+        >
           <v-slide-group-item
             v-for="tv in tvs.results"
             :key="tv.id"
