@@ -90,8 +90,7 @@ function onTouchEnd() {
         class="mx-auto"
       >
         <v-slide-group
-          show-arrows
-          @touchstart.native="onTouchStart"
+          @touchmove.native="onTouchStart"
           @touchend.native="onTouchEnd"
         >
           <v-slide-group-item
