@@ -1,5 +1,9 @@
 <script setup>
 const trending = await getTrendingMovie()
+
+function getCountAverage(average) {
+  return (average * 5) / 10
+}
 </script>
 
 <template>
@@ -17,15 +21,20 @@ const trending = await getTrendingMovie()
         <h2 class="text-h4 font-weight-thin mb-4">
           {{ trending.results[0].title }}
         </h2>
+
         <v-rating
           hover
           readonly
+          half-increments
           :length="5"
-          :size="20"
-          :model-value="3"
-          active-color="primary"
-          class="my-6"
+          size="small"
+          :model-value="getCountAverage(trending.results[0].vote_average)"
+          density="comfortable"
+          class="my-2"
         />
+        <div class="text-grey mb-2">
+          {{ parseFloat(trending.results[0].vote_average).toFixed(2) }} |  Reviews({{ trending.results[0].vote_count }}) | {{ trending.results[0].release_date }}
+        </div>
         <h4 class="text-caption">
           {{ trending.results[0].overview }}
         </h4>
