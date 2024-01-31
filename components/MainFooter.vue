@@ -5,7 +5,6 @@ const icons = [ 'mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram' ]
 <template>
   <v-footer
     class="bg-black text-left d-flex flex-column"
-    app
   >
     <div>
       <v-btn

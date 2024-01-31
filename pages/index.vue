@@ -7,16 +7,27 @@ function getCountAverage(average) {
   return (average * 5) / 10
 }
 
+function onTouchStart() {
+  document.querySelector('html').style['overflow-y'] = 'hidden'
+}
+function onTouchEnd() {
+  document.querySelector('html').style['overflow-y'] = 'auto'
+}
+
 </script>
 
 <template>
-  <div>
+  <div id="aux">
     <home-banner />
     <div class="pa-2">
       <p class="text-h5 my-4">
         Películas populares
       </p>
-      <v-sheet class="mx-auto">
+      <v-sheet
+        class="mx-auto"
+        @touchstart.native="onTouchStart"
+        @touchend.native="onTouchEnd"
+      >
         <v-slide-group>
           <v-slide-group-item
             v-for="movie in movies.results"
@@ -75,7 +86,11 @@ function getCountAverage(average) {
       <p class="text-h5 my-4">
         Series populares
       </p>
-      <v-sheet class="mx-auto">
+      <v-sheet
+        class="mx-auto"
+        @touchstart.native="onTouchStart"
+        @touchend.native="onTouchEnd"
+      >
         <v-slide-group>
           <v-slide-group-item
             v-for="tv in tvs.results"
