@@ -139,6 +139,7 @@ function getCountAverage(average) {
   </div>
 </template>
 <style scoped>
+
 .v-card {
   transition: opacity .3s ease-in-out;
 }

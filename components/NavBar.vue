@@ -1,14 +1,15 @@
 <template>
   <v-navigation-drawer
-    fixed
     app
     rail
     color="black"
+    class="text-center"
   >
     <v-list
-      class="d-flex align-center flex-column mb-6"
+      class="d-flex align-center flex-column"
       density="compact"
       nav
+      height="100%"
     >
       <v-list-item
         class="ma-2 pa-2 my-auto"
@@ -35,3 +36,8 @@
 </template>
 <script setup lang="ts">
 </script>
+<style>
+.icon {
+  font-size: 50px;
+}
+</style>

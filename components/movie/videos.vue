@@ -25,13 +25,25 @@ console.log(props.item.videos.results)
           transition="dialog-bottom-transition"
         >
           <template #activator="{ props }">
-            <v-img
-              width="500"
-              height="200"
-              :src="`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`"
-              v-bind="props"
-              class="cursor-pointer"
-            />
+            <v-hover v-slot="{ isHovering, aux }">
+              <v-img
+                width="500"
+                height="200"
+                :src="`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`"
+                v-bind="props"
+                class="cursor-pointer"
+              />
+              <v-overlay
+                :model-value="isHovering"
+                contained
+                scrim="#036358"
+                class="align-center justify-center"
+              >
+                <v-btn variant="flat">
+                  See more info
+                </v-btn>
+              </v-overlay>
+            </v-hover>
           </template>
 
           <template #default="{ isActive }">

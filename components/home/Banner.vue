@@ -14,7 +14,7 @@ function getCountAverage(average) {
       height="600"
     >
       <div
-        class="d-flex flex-column fill-height justify-center text-white pa-6"
+        class="d-flex flex-column fill-height justify-center text-white pa-6 offset-1"
         align-self="left"
         style="max-width: 70%;"
       >
@@ -42,3 +42,8 @@ function getCountAverage(average) {
     </v-parallax>
   </v-responsive>
 </template>
+<style>
+.v-image__image--contain {
+  background-position: right center !important;
+}
+</style>
