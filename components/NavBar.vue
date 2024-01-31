@@ -34,10 +34,3 @@
     </v-list>
   </v-navigation-drawer>
 </template>
-<script setup lang="ts">
-</script>
-<style>
-.icon {
-  font-size: 50px;
-}
-</style>
