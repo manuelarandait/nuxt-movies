@@ -72,7 +72,7 @@ function getCountAverage(average) {
       <v-card-text>
         <v-window
           v-model="tab"
-          style="height: 100vh;"
+          style="min-height: 100vh;"
         >
           <v-window-item
             :value="1"

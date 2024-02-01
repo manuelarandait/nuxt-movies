@@ -26,20 +26,22 @@
     />
     {{ collection.value }}
     <h2
-      v-if="!collection.value"
+      v-if="!collection.results"
       class="text-center mt-4 text-disabled"
     >
       Introduce algo para buscar...
     </h2>
     <v-container
+      v-else
       fluid
     > 
-      <v-row>
+      <v-row class="justify-center">
         <v-col
           v-for="movie in collection.results"
           :key="movie.id"
-          cols="16"
+          cols="12"
           sm="2"
+          class="mx-4"
         >
           <NuxtLink
             :to="`/movie/${movie.id}`"

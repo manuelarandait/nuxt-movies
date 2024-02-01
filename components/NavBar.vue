@@ -49,22 +49,22 @@ const value = ref(1)
     grow
     height="70"
   >
-    <v-btn>
+    <v-btn to="/">
       <v-icon size="30">
         mdi-home
       </v-icon>
     </v-btn>
-    <v-btn>
+    <v-btn to="/movie">
       <v-icon size="30">
         mdi-movie
       </v-icon>
     </v-btn>
-    <v-btn>
+    <v-btn to="/tv">
       <v-icon size="30">
         mdi-television-classic
       </v-icon>
     </v-btn>
-    <v-btn>
+    <v-btn to="/search">
       <v-icon size="30">
         mdi-magnify
       </v-icon>
