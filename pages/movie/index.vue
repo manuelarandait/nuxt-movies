@@ -1,5 +1,15 @@
+<script setup>
+
+</script>
 <template>
-  <div>
-    Estas en movie
-  </div>
+  <section>
+    <movie-banner />
+    <v-container fluid>
+      <movie-trending />
+      <movie-top-rated />
+      <movie-upcoming />
+      <movie-now-playing />
+    </v-container>
+    <main-footer />
+  </section>
 </template>

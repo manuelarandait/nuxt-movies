@@ -1,3 +1,11 @@
+<script setup>
+import { useDisplay } from 'vuetify'
+
+const { mobile } = useDisplay()
+const value = ref(1)
+
+</script>
+
 <template>
   <v-navigation-drawer
     app
@@ -18,19 +26,48 @@
       />
       <v-list-item
         class="ma-2 pa-2 my-auto"
-        to="movie"
+        to="/movie"
         prepend-icon="mdi-movie"
       />
       <v-list-item
         class="ma-2 pa-2 my-auto"
-        to="tv"
+        to="/tv"
         prepend-icon="mdi-television-classic"
       />
       <v-list-item
         class="ma-2 pa-2 my-auto"
-        to="search"
+        to="/search"
         prepend-icon="mdi-magnify"
       />
     </v-list>
   </v-navigation-drawer>
+  <v-bottom-navigation
+    v-if="mobile"
+    v-model="value"
+    app
+    color="teal"
+    grow
+    height="70"
+  >
+    <v-btn>
+      <v-icon size="30">
+        mdi-home
+      </v-icon>
+    </v-btn>
+    <v-btn>
+      <v-icon size="30">
+        mdi-movie
+      </v-icon>
+    </v-btn>
+    <v-btn>
+      <v-icon size="30">
+        mdi-television-classic
+      </v-icon>
+    </v-btn>
+    <v-btn>
+      <v-icon size="30">
+        mdi-magnify
+      </v-icon>
+    </v-btn>
+  </v-bottom-navigation>
 </template>

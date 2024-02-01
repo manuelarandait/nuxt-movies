@@ -1,8 +1,14 @@
 <script setup>
+
+const route = useRoute()
+
 </script>
 
 <template>
   <div>
-    Estas dentro de una serie
+    <tv-show
+      :id="route.params.id"
+    />
+    <main-footer />
   </div>
 </template>

@@ -1,5 +1,14 @@
+<script setup>
+
+</script>
 <template>
-  <div>
-    Estas en TV
-  </div>
+  <section>
+    <tv-banner />
+    <v-container fluid>
+      <tv-trending />
+      <tv-top-rated />
+      <tv-airing-today />
+    </v-container>
+    <main-footer />
+  </section>
 </template>

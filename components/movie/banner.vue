@@ -1,5 +1,5 @@
 <script setup>
-const trending = await getTrendingMovie()
+const trending = await getTrendingMovies()
 
 function getCountAverage(average) {
   return (average * 5) / 10
@@ -14,11 +14,12 @@ function getCountAverage(average) {
       height="600"
     >
       <div
-        class="d-flex flex-column fill-height justify-center text-white pa-6 offset-1"
-        align-self="left"
+        class="d-flex flex-column fill-height justify-center text-white pa-6 offset-1 fade-in-text"
         style="max-width: 70%;"
       >
-        <h2 class="text-h4 font-weight-thin mb-4">
+        <h2
+          class="text-h4 font-weight-thin mb-4"
+        >
           {{ trending.results[0].title }}
         </h2>
 
@@ -45,5 +46,12 @@ function getCountAverage(average) {
 <style>
 .v-image__image--contain {
   background-position: right center !important;
+}
+.fade-in-text {
+  animation: fadeInTop 1s;
+}
+@keyframes fadeInTop {
+  0% { opacity: 0; transform: translateY(-50px)}
+  100% { opacity: 1; }
 }
 </style>

@@ -30,7 +30,7 @@ const { mobile } = useDisplay()
         sm="6"
       >
         <div
-          class="d-flex flex-column  text-white pa-6"
+          class="d-flex flex-column text-white pa-6"
         >
           <h2 class="text-h4 font-weight-thin mb-4">
             Sinopsis
@@ -44,20 +44,6 @@ const { mobile } = useDisplay()
               cols="12"
               sm="6"
             >
-              <v-row>
-                <v-col
-                  cols="6"
-                  sm="4"
-                >
-                  <p> Release date:</p>
-                </v-col>
-                <v-col
-                  cols="6"
-                  sm="8"
-                >
-                  <p> {{ props.item.release_date }}</p>
-                </v-col>
-              </v-row>
               <v-row>
                 <v-col
                   cols="6"
@@ -77,20 +63,6 @@ const { mobile } = useDisplay()
                   cols="6"
                   sm="4"
                 >
-                  <p> Recaudación:</p>
-                </v-col>
-                <v-col
-                  cols="6"
-                  sm="8"
-                >
-                  <p> {{ parseFloat(props.item.revenue).toFixed() }} $</p>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col
-                  cols="6"
-                  sm="4"
-                >
                   <p> Estado:</p>
                 </v-col>
                 <v-col
@@ -101,22 +73,10 @@ const { mobile } = useDisplay()
                 </v-col>
               </v-row>
             </v-col>
-            <v-col cols="12"
-                   sm="6">
-              <v-row>
-                <v-col
-                  cols="6"
-                  sm="4"
-                >
-                  <p> Duración:</p>
-                </v-col>
-                <v-col
-                  cols="6"
-                  sm="8"
-                >
-                  <p> {{ props.item.runtime }} min</p>
-                </v-col>
-              </v-row>
+            <v-col
+              cols="12"
+              sm="6"
+            >
               <v-row>
                 <v-col
                   cols="6"
@@ -137,20 +97,6 @@ const { mobile } = useDisplay()
                   >
                     <p> {{ genre.name }}</p>
                   </v-chip>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col
-                  cols="6"
-                  sm="4"
-                >
-                  <p> Presupuesto:</p>
-                </v-col>
-                <v-col
-                  cols="6"
-                  sm="8"
-                >
-                  <p> {{ parseFloat(props.item.budget).toFixed() }} $</p>
                 </v-col>
               </v-row>
               <v-row>
