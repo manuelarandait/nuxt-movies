@@ -1,3 +1,14 @@
+<script setup>
+
+const route = useRoute()
+
+</script>
+
 <template>
-  <div>Estas en person</div>
+  <div>
+    <person-show
+      :id="route.params.id"
+    />
+    <main-footer />
+  </div>
 </template>

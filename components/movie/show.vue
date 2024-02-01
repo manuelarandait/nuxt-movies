@@ -47,7 +47,7 @@ function getCountAverage(average) {
         <div class="text-grey mb-2">
           {{ movie.release_date }}
         </div>
-        <h4 class="text-caption">
+        <h4 :class="mobile ? 'text-body-1' :'text-caption'">
           {{ movie.overview }}
         </h4>
       </div>
@@ -73,6 +73,7 @@ function getCountAverage(average) {
         <v-window
           v-model="tab"
           style="min-height: 100vh;"
+          :touch="false"
         >
           <v-window-item
             :value="1"

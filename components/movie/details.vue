@@ -30,12 +30,12 @@ const { mobile } = useDisplay()
         sm="6"
       >
         <div
-          class="d-flex flex-column  text-white pa-6"
+          class="d-flex flex-column text-white"
         >
           <h2 class="text-h4 font-weight-thin mb-4">
             Sinopsis
           </h2>
-          <h4 class="text-caption">
+          <h4 :class="mobile ? 'text-body-1' :'text-caption'">
             {{ props.item.overview }}
           </h4>
           <v-divider class="my-2" />

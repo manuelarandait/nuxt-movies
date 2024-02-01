@@ -71,6 +71,7 @@ function getCountAverage(average) {
       </v-tabs>
       <v-window
         v-model="tab"
+        :touch="false"
         style="min-height: 100vh;"
       >
         <v-window-item

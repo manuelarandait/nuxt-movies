@@ -53,9 +53,10 @@ export async function getAiringTodayTv() {
 }
 
 export async function getTrendingMovies() {
-    return await $fetch('https://api.themoviedb.org/3/trending/movie/day?language=es-ES&page=1', {
+    return await $fetch('https://api.themoviedb.org/3/trending/movie/day?&page=1', {
         params: {
-            language: 'es-ES'
+            language: 'es-ES',
+            append_to_response: 'videos,credits,images,external_ids,release_dates,combined_credits',
         },
         headers: {
             accept: 'application/json',
@@ -124,6 +125,18 @@ export async function getTv(id: string | RouteParamValue[]) {
             language: 'es-ES',
             append_to_response: 'videos,credits,images,external_ids,release_dates,combined_credits',
             include_image_language: 'en'
+        },
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OTRkNzJhMmJiNzY5MzM1MmM4MDU0ZjI5MDQzNjU3YiIsInN1YiI6IjY1Yjc3MGM0NWUxNGU1MDE3YmFlODJjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Qu3smjJWNcoulr4O5u_w-JDWoaF6iSIE48wKU98r9jw'
+        }
+    })
+}
+
+export async function getPerson(id: string | RouteParamValue[]) {
+    return await $fetch(`https://api.themoviedb.org/3/person/${id}?page=1&`, {
+        params: {
+            language: 'es-ES'
         },
         headers: {
             accept: 'application/json',

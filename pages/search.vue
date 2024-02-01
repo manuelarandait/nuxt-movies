@@ -49,6 +49,7 @@
               <v-card
                 :class="{ 'on-hover': isHovering }"
                 v-bind="props"
+                height="100%"
                 :elevation="isHovering ? 20 : 0"
               >
                 <v-img
