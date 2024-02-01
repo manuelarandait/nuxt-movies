@@ -1,30 +1,15 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
+const isDev = process.env.NODE_ENV === 'development'
+
 export default defineNuxtConfig({
-    components: {
-        dirs: ['components', 'composables']
-        },
-    devtools: { enabled: true },
-    modules: [
-        (_options, nuxt) => {
-            nuxt.hooks.hook('vite:extendConfig', (config) => {
-            // @ts-ignore
-                config.plugins.push(vuetify({ autoImport: true }))
-            })
-        },
-        '@nuxtjs/eslint-module',
-        '@nuxtjs/google-fonts'
-    ],
     build: {
         transpile: ['vuetify']
-        },
-    vite: {
-        vue: {
-            template: {
-                transformAssetUrls,
-            },
-        },
     },
+    components: {
+        dirs: ['components', 'composables']
+    },
+    devtools: {enabled: true},
     fontMetrics: {
         fonts: ['DM Sans']
     },
@@ -34,5 +19,30 @@ export default defineNuxtConfig({
         families: {
             'DM+Sans': [400, 500, 600, 700]
         }
+    },
+    modules: [
+        (_options, nuxt) => {
+            nuxt.hooks.hook('vite:extendConfig', (config) => {
+                // @ts-ignore
+                config.plugins.push(vuetify({autoImport: true}))
+            })
+        },
+        '@nuxtjs/eslint-module',
+        '@nuxtjs/google-fonts'
+    ],
+    nitro: {
+        routeRules: {
+            '/**': {isr: false},
+        },
+    },
+    routeRules: {
+        '/**': isDev ? {} : {cache: {swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true}},
+    },
+    vite: {
+        vue: {
+            template: {
+                transformAssetUrls,
+            },
+        },
     }
 })
