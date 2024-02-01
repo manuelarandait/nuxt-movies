@@ -48,16 +48,11 @@
             <v-hover v-slot="{ isHovering, props }">
               <v-card
                 :class="{ 'on-hover': isHovering }"
-                height="auto"
-                width="200"
-
                 v-bind="props"
                 :elevation="isHovering ? 20 : 0"
               >
                 <v-img
                   cover
-                  width="200"
-                  height="300"
                   :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
                 />
                 <v-card-item>
