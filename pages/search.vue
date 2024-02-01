@@ -35,31 +35,29 @@
       v-else
       fluid
     > 
-      <v-row class="justify-center">
+      <v-row>
         <v-col
           v-for="movie in collection.results"
           :key="movie.id"
-          cols="12"
+          cols="6"
           sm="2"
-          class="mx-4"
         >
           <NuxtLink
             :to="`/movie/${movie.id}`"
           >
             <v-hover v-slot="{ isHovering, props }">
               <v-card
-                class="ma-1 mb-2"
                 :class="{ 'on-hover': isHovering }"
                 height="auto"
-                width="250"
+                width="200"
 
                 v-bind="props"
                 :elevation="isHovering ? 20 : 0"
               >
                 <v-img
                   cover
-                  width="250"
-                  height="400"
+                  width="200"
+                  height="300"
                   :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
                 />
                 <v-card-item>
@@ -79,7 +77,7 @@
                       color="amber"
                       density="compact"
                       readonly
-                      size="small"
+                      size="x-small"
                     />
 
                     <div class="text-grey ms-4">
@@ -95,3 +93,19 @@
     </v-container>
   </div>
 </template>
+<style scoped>
+
+.v-card {
+  transition: opacity .3s ease-in-out;
+}
+
+.v-card:hover {
+  opacity: 0.5;
+}
+
+a:link, a:visited, a:active {
+  text-decoration:none;
+}
+
+</style>
+

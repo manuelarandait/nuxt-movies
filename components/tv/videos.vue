@@ -16,7 +16,8 @@ const props = defineProps({
       <v-col
         v-for="video in props.item.videos.results"
         :key="video.id"
-        cols="3"
+        cols="12"
+        sm="3"
       >
         <v-dialog
           width="1080"
