@@ -25,5 +25,8 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "nuxt-swiper": "^0.1.5"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.6.1"
   }
 }

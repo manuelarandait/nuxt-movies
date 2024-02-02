@@ -10,6 +10,7 @@ export default defineNuxtConfig({
         dirs: ['components', 'composables']
     },
     devtools: {enabled: true},
+    // @ts-ignore
     fontMetrics: {
         fonts: ['DM Sans']
     },
