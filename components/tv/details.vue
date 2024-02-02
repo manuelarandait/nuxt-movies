@@ -123,43 +123,58 @@ const { mobile } = useDisplay()
     <p class="text-h5 my-4 mx-8">
       Cast
     </p>
-    <v-sheet class="mx-auto">
-      <v-slide-group>
-        <v-slide-group-item
-          v-for="cast in props.item.credits.cast"
-          :key="cast.id"
-        >
-          <NuxtLink :to="`/person/${cast.id}`">
-            <v-hover v-slot="{ isHovering, props }">
-              <v-card
-                class="ma-1 mb-2"
-                :class="{ 'on-hover': isHovering }"
-                height="auto"
+    <Swiper
+      :height="400"
+      :slides-per-view="mobile ? 1.3 : (props.item.credits.cast.length < 7 ? props.item.credits.cast.length : 7)"
+      :loop="true"
+      :autoplay="{
+        delay: 8000,
+        disableOnInteraction: true
+      }"
+      :creative-effect="{
+        prev: {
+          shadow: false,
+          translate: ['-20%', 0, -1]
+        },
+        next: {
+          translate: ['100%', 0, 0]
+        }
+      }"
+    >
+      <SwiperSlide
+        v-for="cast in props.item.credits.cast"
+        :key="cast.id"
+      >
+        <NuxtLink :to="`/person/${cast.id}`">
+          <v-hover v-slot="{ isHovering, prop }">
+            <v-card
+              class="ma-1 mb-2"
+              :class="{ 'on-hover': isHovering }"
+              height="auto"
+              width="200"
+              v-bind="prop"
+              :elevation="isHovering ? 20 : 0"
+            >
+              <v-img
+                cover
                 width="200"
-                v-bind="props"
-                :elevation="isHovering ? 20 : 0"
-              >
-                <v-img
-                  cover
-                  width="200"
-                  height="auto"
-                  :src="`https://image.tmdb.org/t/p/w500/${cast.profile_path}`"
-                />
+                height="auto"
+                :src="`https://image.tmdb.org/t/p/w500/${cast.profile_path}`"
+              />
 
-                <v-card-item>
-                  <v-card-subtitle>
-                    <span class="me-1">{{ cast.name }}</span>
-                  </v-card-subtitle>
-                </v-card-item>
-                <div class="text-grey ms-4 mb-2">
-                  <span class="me-1">{{ cast.character }}</span>
-                </div>
-              </v-card>
-            </v-hover>
-          </NuxtLink>
-        </v-slide-group-item>
-      </v-slide-group>
-    </v-sheet>
+              <v-card-item>
+                <v-card-subtitle>
+                  <span class="me-1">{{ cast.name }}</span>
+                </v-card-subtitle>
+              </v-card-item>
+              <div class="text-grey ms-4 mb-2">
+                <span class="me-1">{{ cast.character }}</span>
+              </div>
+            </v-card>
+          </v-hover>
+        </NuxtLink>
+      </SwiperSlide>
+    </Swiper>
   </v-container>
 </template>
 <style scoped>

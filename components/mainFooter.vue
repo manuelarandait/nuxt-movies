@@ -1,11 +1,14 @@
 <script setup>
-const icons = [ 'mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram' ]
+const icons = [ 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram' ]
 </script>
 
 <template>
   <v-footer
     class="bg-black text-left d-flex flex-column"
   >
+    <p class="my-2"> Made with Nuxt</p>
+    <v-divider />
+
     <div>
       <v-btn
         v-for="icon in icons"
@@ -16,7 +19,7 @@ const icons = [ 'mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram' ]
       />
     </div>
 
-    <v-divider />
+    <v-divider class="my-2"/>
 
     <div>
       {{ new Date().getFullYear() }} — <strong>Manuel Aranda Dev</strong>
