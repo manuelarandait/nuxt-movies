@@ -4,6 +4,15 @@ const movies = await getPopularMovies()
 function getCountAverage(average) {
   return (average * 5) / 10
 }
+
+function onTouchStart () {
+  document.documentElement.style.overflow = 'hidden';
+}
+
+function onTouchEnd () {
+  document.documentElement.style.overflow = 'auto';
+}
+
 </script>
 
 <template>
@@ -11,7 +20,10 @@ function getCountAverage(average) {
     <p class="text-h5 my-4">
       Películas populares
     </p>
-    <v-slide-group>
+    <v-slide-group
+      @touchstart.native="onTouchStart"
+      @touchend.native="onTouchEnd"
+    >
       <v-slide-group-item
         v-for="movie in movies.results"
         :key="movie.id"
