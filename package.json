@@ -23,6 +23,7 @@
     "vuetify": "^3.5.2"
   },
   "dependencies": {
-    "@mdi/font": "^7.4.47"
+    "@mdi/font": "^7.4.47",
+    "nuxt-swiper": "^0.1.5"
   }
 }

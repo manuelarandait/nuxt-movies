@@ -28,7 +28,8 @@ export default defineNuxtConfig({
             })
         },
         '@nuxtjs/eslint-module',
-        '@nuxtjs/google-fonts'
+        '@nuxtjs/google-fonts',
+        'nuxt-swiper'
     ],
     nitro: {
         routeRules: {

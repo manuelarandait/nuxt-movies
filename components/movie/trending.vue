@@ -1,17 +1,13 @@
 <script setup>
+
 const movies = await getPopularMovies()
 
 function getCountAverage(average) {
   return (average * 5) / 10
 }
 
-function onTouchStart () {
-  document.documentElement.style.overflow = 'hidden';
-}
-
-function onTouchEnd () {
-  document.documentElement.style.overflow = 'auto';
-}
+import { useDisplay } from 'vuetify'
+const { mobile } = useDisplay()
 
 </script>
 
@@ -20,24 +16,37 @@ function onTouchEnd () {
     <p class="text-h5 my-4">
       Películas populares
     </p>
-    <v-slide-group
-      @touchstart.native="onTouchStart"
-      @touchend.native="onTouchEnd"
+    <Swiper
+      :height="400"
+      :slides-per-view="mobile ? 1.3 : 5"
+      :loop="true"
+      :autoplay="{
+        delay: 8000,
+        disableOnInteraction: true
+      }"
+      :creative-effect="{
+        prev: {
+          shadow: false,
+          translate: ['-20%', 0, -1]
+        },
+        next: {
+          translate: ['100%', 0, 0]
+        }
+      }"
     >
-      <v-slide-group-item
-        v-for="movie in movies.results"
-        :key="movie.id"
+      <SwiperSlide
+        v-for="(movie, idx) in movies.results"
+        :key="idx"
       >
         <NuxtLink
           :to="`/movie/${movie.id}`"
         >
           <v-hover v-slot="{ isHovering, props }">
             <v-card
-              class="ma-1 mb-2"
               :class="{ 'on-hover': isHovering }"
               height="auto"
               width="250"
-  
+
               v-bind="props"
               :elevation="isHovering ? 20 : 0"
             >
@@ -52,7 +61,7 @@ function onTouchEnd () {
                   <span class="me-1">{{ movie.title }}</span>
                 </v-card-subtitle>
               </v-card-item>
-  
+
               <v-card-text>
                 <v-row
                   align="center"
@@ -66,7 +75,7 @@ function onTouchEnd () {
                     readonly
                     size="small"
                   />
-  
+
                   <div class="text-grey ms-4">
                     {{ parseFloat(movie.vote_average).toFixed(2) }} ({{ movie.vote_count }})
                   </div>
@@ -75,8 +84,8 @@ function onTouchEnd () {
             </v-card>
           </v-hover>
         </NuxtLink>
-      </v-slide-group-item>
-    </v-slide-group>
+      </SwiperSlide>
+    </Swiper>
   </div>
 </template>
 <style scoped>

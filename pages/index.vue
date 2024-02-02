@@ -1,12 +1,5 @@
 <script setup>
 
-function onTouchStart() {
-  document.querySelector('html').style['overflow-y'] = 'hidden'
-}
-function onTouchEnd() {
-  document.querySelector('html').style['overflow-y'] = 'auto'
-}
-
 </script>
 
 <template>
