@@ -29,7 +29,7 @@ function getCountAverage(average) {
         v-bind="prop"
         :elevation="isHovering ? 20 : 0"
       >
-        <v-img
+        <nuxt-img
           cover
           width="250"
           height="400"
@@ -64,3 +64,18 @@ function getCountAverage(average) {
     </v-hover>
   </NuxtLink>
 </template>
+<style scoped>
+
+.v-card {
+  transition: opacity .3s ease-in-out;
+}
+
+.v-card:hover {
+  opacity: 0.5;
+}
+
+a:link, a:visited, a:active {
+  text-decoration:none;
+}
+
+</style>

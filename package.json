@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "@nuxt/image": "^1.3.0",
     "nuxt-swiper": "^0.1.5"
   },
   "optionalDependencies": {

@@ -27,15 +27,16 @@ const onboarding = ref(0)
         v-for="image in images.backdrops"
         :key="image.id"
         cols="12"
-        sm="2"
+        sm="3"
       >
         <v-dialog
           transition="dialog-bottom-transition"
         >
-          <template #activator="{ prop }">
-            <v-img
+          <template #activator="{ props }">
+            <nuxt-img
               :src="`https://image.tmdb.org/t/p/original/${image.file_path}`"
-              v-bind="prop"
+              v-bind="props"
+              :style="'width: 100%;'"
               class="cursor-pointer"
             />
           </template>
@@ -48,10 +49,16 @@ const onboarding = ref(0)
                 v-for="n in images.backdrops"
                 :key="n.id"
               >
-                <v-card height="100vh">
-                  <v-img
-                    :src="`https://image.tmdb.org/t/p/original/${n.file_path}`"
-                  />
+                <v-card
+                  height="100vh"
+                  class="d-flex align-center"
+                >
+                  <v-card-text class="text-center">
+                    <nuxt-img
+                      :style="'width: 100%;'"
+                      :src="`https://image.tmdb.org/t/p/original/${n.file_path}`"
+                    />
+                  </v-card-text>
                 </v-card>
               </v-window-item>
             </v-window>
@@ -60,7 +67,7 @@ const onboarding = ref(0)
       </v-col>
     </v-row>
     <p class="text-h5 my-4">
-      Posters <span class="text-caption text-disabled"> {{ images.posters.length }}</span>
+      Posters <span class="text-caption text-disabled"> {{ images.posters?.length }}</span>
     </p>
     <v-row>
       <v-col
@@ -72,10 +79,11 @@ const onboarding = ref(0)
         <v-dialog
           transition="dialog-bottom-transition"
         >
-          <template #activator="{ prop }">
-            <v-img
+          <template #activator="{ props }">
+            <nuxt-img
               :src="`https://image.tmdb.org/t/p/original/${image.file_path}`"
-              v-bind="prop"
+              v-bind="props"
+              :style="'width: 100%;'"
               class="cursor-pointer"
             />
           </template>
@@ -88,10 +96,16 @@ const onboarding = ref(0)
                 v-for="n in images.posters"
                 :key="n.id"
               >
-                <v-card height="100vh">
-                  <v-img
-                    :src="`https://image.tmdb.org/t/p/original/${n.file_path}`"
-                  />
+                <v-card
+                  class="d-flex align-center"
+                  height="100vh"
+                >
+                  <v-card-text>
+                    <nuxt-img
+                      :style="'width: 100%;'"
+                      :src="`https://image.tmdb.org/t/p/original/${n.file_path}`"
+                    />
+                  </v-card-text>
                 </v-card>
               </v-window-item>
             </v-window>

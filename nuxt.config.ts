@@ -30,7 +30,8 @@ export default defineNuxtConfig({
         },
         '@nuxtjs/eslint-module',
         '@nuxtjs/google-fonts',
-        'nuxt-swiper'
+        'nuxt-swiper',
+        '@nuxt/image'
     ],
     nitro: {
         routeRules: {

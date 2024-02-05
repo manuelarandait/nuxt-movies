@@ -23,7 +23,7 @@ const { mobile } = useDisplay()
         sm="4"
         offset-lg="1"
       >
-        <v-img
+        <nuxt-img
           height="400"
           :src="`https://image.tmdb.org/t/p/w500/${person.profile_path}`"
         />

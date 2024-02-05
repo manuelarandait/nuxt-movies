@@ -26,7 +26,7 @@ const props = defineProps({
         >
           <template #activator="{ prop }">
             <v-hover v-slot="{ isHovering }">
-              <v-img
+              <nuxt-img
                 width="500"
                 height="200"
                 :src="`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`"

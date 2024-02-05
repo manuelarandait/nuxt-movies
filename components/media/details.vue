@@ -25,7 +25,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
         sm="3"
         offset-lg="1"
       >
-        <v-img
+        <nuxt-img
           v-if="!mobile"
           height="450"
           :src="`https://image.tmdb.org/t/p/w500/${props.item.poster_path}`"
@@ -253,7 +253,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
               v-bind="prop"
               :elevation="isHovering ? 20 : 0"
             >
-              <v-img
+              <nuxt-img
                 cover
                 width="200"
                 height="auto"
