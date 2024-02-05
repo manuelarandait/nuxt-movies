@@ -4,20 +4,24 @@ const props = defineProps({
   item: {
     type: Object,
     required: true
+  },
+
+  type: {
+    type: String,
+    default: 'movie'
   }
 })
 
-const images = await getMovieImages(props.item.id)
+const images = await getMediaImages(props.item.id, props.type)
 const onboarding = ref(0)
-console.log(images)
 
 </script>
 <template>
   <v-container fluid>
     <p class="text-h5 my-4">
-      Fondos <span class="text-caption text-disabled"> {{ images.backdrops.length}}</span>
+      Fondos <span class="text-caption text-disabled"> {{ images.backdrops.length }}</span>
     </p>
-    
+
     <v-row>
       <v-col
         v-for="image in images.backdrops"
@@ -28,10 +32,10 @@ console.log(images)
         <v-dialog
           transition="dialog-bottom-transition"
         >
-          <template #activator="{ props }">
+          <template #activator="{ prop }">
             <v-img
               :src="`https://image.tmdb.org/t/p/original/${image.file_path}`"
-              v-bind="props"
+              v-bind="prop"
               class="cursor-pointer"
             />
           </template>
@@ -56,7 +60,7 @@ console.log(images)
       </v-col>
     </v-row>
     <p class="text-h5 my-4">
-      Posters <span class="text-caption text-disabled"> {{ images.posters.length}}</span>
+      Posters <span class="text-caption text-disabled"> {{ images.posters.length }}</span>
     </p>
     <v-row>
       <v-col
@@ -68,10 +72,10 @@ console.log(images)
         <v-dialog
           transition="dialog-bottom-transition"
         >
-          <template #activator="{ props }">
+          <template #activator="{ prop }">
             <v-img
               :src="`https://image.tmdb.org/t/p/original/${image.file_path}`"
-              v-bind="props"
+              v-bind="prop"
               class="cursor-pointer"
             />
           </template>

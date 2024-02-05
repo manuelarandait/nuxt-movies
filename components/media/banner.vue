@@ -1,5 +1,12 @@
 <script setup>
-const trending = await getTrendingMovies()
+const props = defineProps({
+  mediaType: {
+    type: String,
+    default: 'movie'
+  }
+})
+
+const trending = await getItemCollection(props.mediaType, 'popular')
 
 function getCountAverage(average) {
   return (average * 5) / 10
@@ -24,7 +31,7 @@ const { mobile } = useDisplay()
         <h2
           class="text-h4 font-weight-thin mb-4"
         >
-          {{ trending.results[0].title }}
+          {{ props.mediaType === 'movie' ? trending.results[0].title : trending.results[0].name }}
         </h2>
 
         <v-rating
@@ -38,21 +45,28 @@ const { mobile } = useDisplay()
           class="my-2"
         />
         <div class="text-grey mb-2">
-          {{ parseFloat(trending.results[0].vote_average).toFixed(2) }} |  Reviews({{ trending.results[0].vote_count }}) | {{ trending.results[0].release_date }}
+          {{ parseFloat(trending.results[0].vote_average).toFixed(2) }} |  Reviews({{ trending.results[0].vote_count }})
+        </div>
+        <div
+          v-if="props.mediaType === 'movie'"
+          class="text-grey mb-2"
+        >
+          {{ trending.results[0].release_date }}
         </div>
         <h4 :class="mobile ? 'text-body-1' :'text-caption'">
           {{ trending.results[0].overview }}
         </h4>
         <v-dialog
+          v-if="props.mediaType === 'movie'"
           width="1080"
           height="auto"
           transition="dialog-bottom-transition"
         >
-          <template #activator="{ props }">
+          <template #activator="{ prop }">
             <v-btn
               class="text-none my-4 text-white"
               prepend-icon="mdi-play"
-              v-bind="props"
+              v-bind="prop"
               width="200"
               rounded="0"
               variant="flat"

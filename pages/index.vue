@@ -4,7 +4,7 @@
 
 <template>
   <div id="aux">
-    <movie-banner />
+    <media-banner media-type="movie" />
     <v-container fluid>
       <movie-trending />
       <tv-trending />

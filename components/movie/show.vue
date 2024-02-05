@@ -9,7 +9,7 @@ const props = defineProps({
 
 const tab = ref(null)
 const id = computed(() => props.id)
-const movie = await getMovie(id.value)
+const movie = await getItem( 'movie', Number(id.value))
 
 function getCountAverage(average) {
   return (average * 5) / 10
@@ -78,17 +78,23 @@ function getCountAverage(average) {
           <v-window-item
             :value="1"
           >
-            <movie-details :item="movie" />
+            <media-details
+              :item="movie"
+              :type="'movie'"
+            />
           </v-window-item>
           <v-window-item
             :value="2"
           >
-            <movie-media-photo :item="movie" />
+            <media-images
+              :item="movie"
+              :type="'movie'"
+            />
           </v-window-item>
           <v-window-item
             :value="3"
           >
-            <movie-videos :item="movie" />
+            <media-videos :item="movie" />
           </v-window-item>
         </v-window>
       </v-card-text>

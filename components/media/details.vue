@@ -3,12 +3,17 @@ const props = defineProps({
   item: {
     type: Object,
     required: true
+  },
+  type: {
+    type: String,
+    default: 'movie'
   }
 })
 
 import { useDisplay } from 'vuetify'
-
 const { mobile } = useDisplay()
+
+const directors = props.item.credits?.crew.filter (job => job.job === 'Director')
 
 </script>
 <template>
@@ -22,6 +27,7 @@ const { mobile } = useDisplay()
       >
         <v-img
           v-if="!mobile"
+          height="450"
           :src="`https://image.tmdb.org/t/p/w500/${props.item.poster_path}`"
         />
       </v-col>
@@ -30,12 +36,12 @@ const { mobile } = useDisplay()
         sm="6"
       >
         <div
-          class="d-flex flex-column text-white pa-6"
+          class="d-flex flex-column text-white"
         >
           <h2 class="text-h4 font-weight-thin mb-4">
             Sinopsis
           </h2>
-          <h4 class="text-caption">
+          <h4 :class="mobile ? 'text-body-1' :'text-caption'">
             {{ props.item.overview }}
           </h4>
           <v-divider class="my-2" />
@@ -45,57 +51,39 @@ const { mobile } = useDisplay()
               sm="6"
             >
               <v-row>
-                <v-col
-                  cols="6"
-                  sm="4"
-                >
-                  <p> Director:</p>
-                </v-col>
-                <v-col
-                  cols="6"
-                  sm="8"
-                >
-                  <p> {{ props.item.release_date }}</p>
-                </v-col>
+                <template v-if="props.item.release_date">
+                  <v-col
+                    cols="6"
+                    sm="4"
+                  >
+                    <p> Release date:</p>
+                  </v-col>
+                  <v-col
+                    cols="6"
+                    sm="8"
+                  >
+                    <p> {{ props.item.release_date }}</p>
+                  </v-col>
+                </template>
               </v-row>
               <v-row>
                 <v-col
                   cols="6"
                   sm="4"
                 >
-                  <p> Estado:</p>
-                </v-col>
-                <v-col
-                  cols="6"
-                  sm="8"
-                >
-                  <p> {{ props.item.status }}</p>
-                </v-col>
-              </v-row>
-            </v-col>
-            <v-col
-              cols="12"
-              sm="6"
-            >
-              <v-row>
-                <v-col
-                  cols="6"
-                  sm="4"
-                >
-                  <p> Géneros:</p>
+                  <p> Productor:</p>
                 </v-col>
                 <v-col
                   cols="6"
                   sm="8"
                 >
                   <v-chip
-                    v-for="genre in props.item.genres"
-                    :key="genre.id"
+                    v-for="productor in props.item.production_companies"
+                    :key="productor.id"
                     size="x-small"
                     label
-                    class="mx-1"
                   >
-                    <p> {{ genre.name }}</p>
+                    <p> {{ productor.name }}</p>
                   </v-chip>
                 </v-col>
               </v-row>
@@ -113,6 +101,116 @@ const { mobile } = useDisplay()
                   <p> {{ props.item.original_language }}</p>
                 </v-col>
               </v-row>
+              <v-row>
+                <v-col
+                  v-if="directors?.length"
+                  cols="6"
+                  sm="4"
+                >
+                  <p> Director:</p>
+                </v-col>
+                <v-col
+                  cols="6"
+                  sm="8"
+                >
+                  <v-chip
+                    v-for="director in directors"
+                    :key="director.id"
+                    size="x-small"
+                    label
+                  >
+                    <p> {{ director.name }}</p>
+                  </v-chip>
+                </v-col>
+              </v-row>
+              <v-row>
+                <template v-if="props.item.revenue">
+                  <v-col
+                    cols="6"
+                    sm="4"
+                  >
+                    <p> Recaudación:</p>
+                  </v-col>
+                  <v-col
+                    cols="6"
+                    sm="8"
+                  >
+                    <p> {{ parseFloat(props.item.revenue).toFixed() }} $</p>
+                  </v-col>
+                </template>
+              </v-row>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+            >
+              <v-row>
+                <v-col
+                  cols="6"
+                  sm="4"
+                >
+                  <p> Estado:</p>
+                </v-col>
+                <v-col
+                  cols="6"
+                  sm="8"
+                >
+                  <p> {{ props.item.status }}</p>
+                </v-col>
+              </v-row>
+              <v-row>
+                <template v-if="props.item.runtime">
+                  <v-col
+                    cols="6"
+                    sm="4"
+                  >
+                    <p> Duración:</p>
+                  </v-col>
+                  <v-col
+                    cols="6"
+                    sm="8"
+                  >
+                    <p> {{ props.item.runtime }} min</p>
+                  </v-col>
+                </template>
+              </v-row>
+              <v-row>
+                <template v-if="props.item.budget">
+                  <v-col
+                    cols="6"
+                    sm="4"
+                  >
+                    <p> Presupuesto:</p>
+                  </v-col>
+                  <v-col
+                    cols="6"
+                    sm="8"
+                  >
+                    <p> {{ parseFloat(props.item.budget).toFixed() }} $</p>
+                  </v-col>
+                </template>
+              </v-row>
+              <v-row>
+                <v-col
+                  cols="6"
+                  sm="4"
+                >
+                  <p> Géneros:</p>
+                </v-col>
+                <v-col
+                  cols="6"
+                  sm="8"
+                >
+                  <v-chip
+                    v-for="genre in props.item.genres"
+                    :key="genre.id"
+                    size="x-small"
+                    label
+                  >
+                    <p> {{ genre.name }}</p>
+                  </v-chip>
+                </v-col>
+              </v-row>
             </v-col>
           </v-row>
         </div>
@@ -125,7 +223,7 @@ const { mobile } = useDisplay()
     </p>
     <Swiper
       :height="400"
-      :slides-per-view="mobile ? 1.3 : (props.item.credits.cast.length < 7 ? props.item.credits.cast.length : 7)"
+      :slides-per-view="mobile ? 1.3 : (props.item.credits?.cast.length < 7 ? props.item.credits?.cast.length : 7)"
       :loop="true"
       :autoplay="{
         delay: 8000,
@@ -142,7 +240,7 @@ const { mobile } = useDisplay()
       }"
     >
       <SwiperSlide
-        v-for="cast in props.item.credits.cast"
+        v-for="cast in props.item.credits?.cast"
         :key="cast.id"
       >
         <NuxtLink :to="`/person/${cast.id}`">

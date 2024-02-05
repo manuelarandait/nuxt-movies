@@ -6,7 +6,9 @@ const icons = [ 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram' ]
   <v-footer
     class="bg-black text-left d-flex flex-column"
   >
-    <p class="my-2"> Made with Nuxt</p>
+    <p class="my-2">
+      Made with Nuxt
+    </p>
     <v-divider />
 
     <div>
@@ -19,7 +21,7 @@ const icons = [ 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram' ]
       />
     </div>
 
-    <v-divider class="my-2"/>
+    <v-divider class="my-2" />
 
     <div>
       {{ new Date().getFullYear() }} — <strong>Manuel Aranda Dev</strong>

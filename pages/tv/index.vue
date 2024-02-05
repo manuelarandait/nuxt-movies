@@ -3,7 +3,7 @@
 </script>
 <template>
   <section>
-    <tv-banner />
+    <media-banner media-type="tv" />
     <v-container fluid>
       <tv-trending />
       <tv-top-rated />

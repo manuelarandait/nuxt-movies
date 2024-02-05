@@ -7,12 +7,10 @@ const props = defineProps({
   }
 })
 
-const tab = ref(null)
 const id = computed(() => props.id)
 const person = await getPerson(id.value)
 
 import { useDisplay } from 'vuetify'
-
 const { mobile } = useDisplay()
 
 </script>
@@ -32,7 +30,7 @@ const { mobile } = useDisplay()
       </v-col>
       <v-col
         cols="12"
-        sm="8"
+        sm="7"
       >
         <div
           class="d-flex flex-column  text-white pa-6"

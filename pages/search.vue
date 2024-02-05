@@ -15,6 +15,9 @@
     return (average * 5) / 10
   }
 
+  import { useDisplay } from 'vuetify'
+  const { mobile } = useDisplay()
+
 </script>
 
 <template>
@@ -54,11 +57,12 @@
               >
                 <v-img
                   cover
+                  :height="!mobile ? 400 : 200"
                   :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
                 />
                 <v-card-item>
                   <v-card-subtitle>
-                    <span class="me-1">{{ movie.name }}</span>
+                    <span class="me-1">{{ movie.media_type === 'movie' ? movie.title : movie.name }}</span>
                   </v-card-subtitle>
                 </v-card-item>
 

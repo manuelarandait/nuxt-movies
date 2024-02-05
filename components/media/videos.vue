@@ -5,7 +5,6 @@ const props = defineProps({
     required: true
   }
 })
-console.log(props.item.videos.results)
 </script>
 <template>
   <v-container fluid>
@@ -25,13 +24,13 @@ console.log(props.item.videos.results)
           height="auto"
           transition="dialog-bottom-transition"
         >
-          <template #activator="{ props }">
-            <v-hover v-slot="{ isHovering, aux }">
+          <template #activator="{ prop }">
+            <v-hover v-slot="{ isHovering }">
               <v-img
                 width="500"
                 height="200"
                 :src="`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`"
-                v-bind="props"
+                v-bind="prop"
                 class="cursor-pointer"
               />
               <v-overlay

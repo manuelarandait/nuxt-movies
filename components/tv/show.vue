@@ -9,7 +9,7 @@ const props = defineProps({
 
 const tab = ref(null)
 const id = computed(() => props.id)
-const tv = await getTv(id.value)
+const tv = await getItem( 'tv', id.value)
 
 function getCountAverage(average) {
   return (average * 5) / 10
@@ -78,19 +78,25 @@ function getCountAverage(average) {
           :key="1"
           :value="1"
         >
-          <tv-details :item="tv" />
+          <media-details
+            :item="tv"
+            :type="'tv'"
+          />
         </v-window-item>
         <v-window-item
           :key="2"
           :value="2"
         >
-          <tv-media-photo :item="tv" />
+          <media-images
+            :item="tv"
+            :type="'tv'"
+          />
         </v-window-item>
         <v-window-item
           :key="3"
           :value="3"
         >
-          <tv-videos :item="tv" />
+          <media-videos :item="tv" />
         </v-window-item>
       </v-window>
     </v-card>
