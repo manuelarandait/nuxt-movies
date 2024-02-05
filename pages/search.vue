@@ -56,7 +56,7 @@
                 :elevation="isHovering ? 20 : 0"
               >
                 <nuxt-img
-                    :style="'width: 100%;'"
+                  :style="'width: 100%;'"
                   :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
                 />
                 <v-card-item>

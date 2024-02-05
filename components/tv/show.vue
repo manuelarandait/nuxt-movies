@@ -24,7 +24,7 @@ function getCountAverage(average) {
       height="600"
     >
       <div
-        class="d-flex flex-column fill-height justify-center text-white pa-6 offset-1"
+        class="d-flex flex-column fill-height justify-center pa-6 offset-1"
         style="max-width: 70%;"
       >
         <h2 class="text-h4 font-weight-thin mb-4">

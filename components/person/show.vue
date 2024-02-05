@@ -33,7 +33,7 @@ const { mobile } = useDisplay()
         sm="7"
       >
         <div
-          class="d-flex flex-column  text-white pa-6"
+          class="d-flex flex-column pa-6"
         >
           <h2 class="text-h4 font-weight-thin mb-4">
             {{ person.name }}

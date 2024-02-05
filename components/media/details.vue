@@ -36,7 +36,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
         sm="6"
       >
         <div
-          class="d-flex flex-column text-white"
+          class="d-flex flex-column"
         >
           <h2 class="text-h4 font-weight-thin mb-4">
             Sinopsis

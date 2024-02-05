@@ -4,13 +4,18 @@ import { useDisplay } from 'vuetify'
 const { mobile } = useDisplay()
 const value = ref(1)
 
+import { useTheme } from 'vuetify'
+const theme = useTheme()
+
+function toggleTheme () {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
 </script>
 
 <template>
   <v-navigation-drawer
     app
     rail
-    color="black"
     class="text-center"
   >
     <v-list
@@ -40,6 +45,11 @@ const value = ref(1)
         prepend-icon="mdi-magnify"
       />
     </v-list>
+    <template #append>
+      <v-btn @click="toggleTheme">
+        <v-icon icon="mdi-theme-light-dark"></v-icon>
+      </v-btn>
+    </template>
   </v-navigation-drawer>
   <v-bottom-navigation
     v-if="mobile"
