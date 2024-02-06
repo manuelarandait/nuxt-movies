@@ -29,13 +29,7 @@ function getCountAverage(average) {
         v-bind="prop"
         :elevation="isHovering ? 20 : 4"
       >
-        <nuxt-img
-          cover
-          width="250"
-          height="400"
-          :alt="props.item.title || props.item.name"
-          :src="`https://image.tmdb.org/t/p/w500/${props.item.poster_path}`"
-        />
+
         <v-card-item>
           <v-card-subtitle>
             <span class="me-1">{{ props.media === 'movie' ? props.item.title : props.item.name }}</span>
@@ -47,14 +41,6 @@ function getCountAverage(average) {
             align="center"
             class="mx-0"
           >
-            <v-rating
-              :model-value="3"
-              half-increments
-              color="amber"
-              density="compact"
-              readonly
-              size="small"
-            />
 
             <div class="text-grey ms-4">
               {{ parseFloat(props.item.vote_average).toFixed(2) }} ({{ props.item.vote_count }})
