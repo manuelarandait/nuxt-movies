@@ -63,20 +63,15 @@
                 <v-card-text>
                   <v-row
                     align="center"
-                    class="mx-0 mb-1"
+                    class="mx-0"
                   >
-                    <v-rating
-                      :model-value="getCountAverage(movie.vote_average)"
-                      half-increments
-                      color="amber"
-                      density="compact"
-                      readonly
-                      size="x-small"
-                    />
-
-                    <div class="text-grey ms-1">
-                      {{ parseFloat(movie.vote_average).toFixed(2) }} ({{ movie.vote_count }})
-                    </div>
+                    <v-col>
+                      <NuxtRating
+                        :read-only="true"
+                        :rating-size="'20px'"
+                        :rating-value="getCountAverage(movie.vote_average)"
+                      />
+                    </v-col>
                   </v-row>
                 </v-card-text>
               </v-card>

@@ -35,19 +35,15 @@ const theme = useTheme()
       >
         {{ props.mediaType === 'movie' ? trending.results[0].title : trending.results[0].name }}
       </h2>
-
-      <v-rating
-        hover
-        readonly
-        half-increments
-        :length="5"
-        size="small"
-        :model-value="getCountAverage(trending.results[0].vote_average)"
-        density="comfortable"
-        class="my-2"
+      <NuxtRating
+        :read-only="true"
+        :rating-size="'30px'"
+        :rating-value="getCountAverage(trending.results[0].vote_average)"
+        :style="'margin-bottom:10px;'"
       />
+      
       <div class="text-grey mb-2">
-        {{ parseFloat(trending.results[0].vote_average).toFixed(2) }} |  Reviews({{ trending.results[0].vote_count }})
+        {{ parseFloat(trending.results[0].vote_average).toFixed(2) }} ·  Reviews ( {{ trending.results[0].vote_count }} )
       </div>
       <div
         v-if="props.mediaType === 'movie'"
