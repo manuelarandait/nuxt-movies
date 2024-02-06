@@ -21,7 +21,6 @@ const props = defineProps({
         <media-card
           :item="cast"
           :type="cast.media_type"
-          :style="'width: 100%;'"
         />
       </v-col>
     </v-row>

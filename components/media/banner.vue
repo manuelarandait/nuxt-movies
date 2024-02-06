@@ -7,6 +7,8 @@ const props = defineProps({
 })
 
 const trending = await getItemCollection(props.mediaType, 'popular')
+const topMovie = await getItem( 'movie', Number(trending.results[0].id))
+console.log(topMovie)
 
 function getCountAverage(average) {
   return (average * 5) / 10
@@ -65,11 +67,11 @@ const theme = useTheme()
         height="auto"
         transition="dialog-bottom-transition"
       >
-        <template #activator="{ prop }">
+        <template #activator="{ props }">
           <v-btn
             class="text-none my-4"
             prepend-icon="mdi-play"
-            v-bind="prop"
+            v-bind="props"
             width="200"
             rounded="0"
             variant="flat"
@@ -92,7 +94,7 @@ const theme = useTheme()
             </v-toolbar>
             <v-card-text>
               <iframe
-                :src="`https://www.youtube.com/embed/${trending.results[0].key}?rel=0&showinfo=0&autoplay=0`"
+                :src="`https://www.youtube.com/embed/${topMovie.videos?.results[0]?.key}?rel=0&showinfo=0&autoplay=0`"
                 width="100%"
                 height="600"
               />

@@ -42,7 +42,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
           <h2 class="text-h4 font-weight-thin mb-4">
             Sinopsis
           </h2>
-          <h4 :class="mobile ? 'text-body-1' :'text-caption'">
+          <h4 :class="!mobile ? 'text-body-1' :'text-caption'">
             {{ props.item.overview }}
           </h4>
           <v-divider class="my-2" />

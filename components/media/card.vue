@@ -27,7 +27,7 @@ function getCountAverage(average) {
         height="auto"
         width="250"
         v-bind="prop"
-        :elevation="isHovering ? 20 : 0"
+        :elevation="isHovering ? 20 : 4"
       >
         <nuxt-img
           cover
