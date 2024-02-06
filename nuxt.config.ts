@@ -6,21 +6,13 @@ export default defineNuxtConfig({
     build: {
         transpile: ['vuetify']
     },
+    app: {
+        pageTransition: { name: 'page', mode: 'out-in' }
+    },
     components: {
         dirs: ['components', 'composables']
     },
     devtools: {enabled: true},
-    // @ts-ignore
-    fontMetrics: {
-        fonts: ['DM Sans']
-    },
-    googleFonts: {
-        display: 'swap',
-        download: true,
-        families: {
-            'DM+Sans': [400, 500, 600, 700]
-        }
-    },
     modules: [
         (_options, nuxt) => {
             nuxt.hooks.hook('vite:extendConfig', (config) => {
@@ -35,11 +27,8 @@ export default defineNuxtConfig({
     ],
     nitro: {
         routeRules: {
-            '/**': {isr: false},
+            '/**': {isr: true},
         },
-    },
-    routeRules: {
-        '/**': isDev ? {} : {cache: {swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true}},
     },
     vite: {
         vue: {

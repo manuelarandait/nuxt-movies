@@ -7,8 +7,7 @@ const props = defineProps({
 })
 
 const trending = await getItemCollection(props.mediaType, 'popular')
-const topMovie = await getItem( 'movie', Number(trending.results[0].id))
-console.log(topMovie)
+const topMovie = await getItem( props.mediaType, Number(trending.results[0].id))
 
 function getCountAverage(average) {
   return (average * 5) / 10
