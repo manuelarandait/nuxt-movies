@@ -1,5 +1,4 @@
 <script setup>
-
   const search = ref('')
   const collection = ref([])
 
@@ -14,9 +13,6 @@
   function getCountAverage(average) {
     return (average * 5) / 10
   }
-
-  import { useDisplay } from 'vuetify'
-
 </script>
 
 <template>
