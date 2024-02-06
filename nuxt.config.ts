@@ -1,12 +1,8 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
-    ssr: true,
     build: {
         transpile: ['vuetify']
-    },
-    app: {
-        pageTransition: { name: 'page', mode: 'out-in' }
     },
     components: {
         dirs: ['components', 'composables']
@@ -24,9 +20,6 @@ export default defineNuxtConfig({
         'nuxt-swiper',
         '@nuxt/image'
     ],
-    routeRules: {
-        '/**': {prerender: true},
-    },
     vite: {
         vue: {
             template: {

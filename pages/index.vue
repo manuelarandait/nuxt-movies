@@ -3,14 +3,12 @@
 
 <template>
   <div id="media-main">
-    <client-only>
-      <media-banner media-type="movie" />
-      <v-container fluid>
-        <movie-trending title="Películas populares" />
-        <tv-trending />
-      </v-container>
-      <main-footer />
-    </client-only>
+    <media-banner media-type="movie" />
+    <v-container fluid>
+      <movie-trending title="Películas populares" />
+      <tv-trending />
+    </v-container>
+    <main-footer />
   </div>
 </template>
 <style scoped>

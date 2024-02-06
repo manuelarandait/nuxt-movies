@@ -33,6 +33,7 @@ function getCountAverage(average) {
           cover
           width="250"
           height="400"
+          :alt="props.item.title || props.item.name"
           :src="`https://image.tmdb.org/t/p/w500/${props.item.poster_path}`"
         />
         <v-card-item>
