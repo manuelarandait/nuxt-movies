@@ -1,8 +1,7 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
-const isDev = process.env.NODE_ENV === 'development'
-
 export default defineNuxtConfig({
+    ssr: true,
     build: {
         transpile: ['vuetify']
     },
@@ -25,10 +24,8 @@ export default defineNuxtConfig({
         'nuxt-swiper',
         '@nuxt/image'
     ],
-    nitro: {
-        routeRules: {
-            '/**': {isr: true},
-        },
+    routeRules: {
+        '/**': {prerender: true},
     },
     vite: {
         vue: {
