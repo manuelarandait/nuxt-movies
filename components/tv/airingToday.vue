@@ -25,7 +25,7 @@ const movies = await getItemCollection('tv', 'airing_today')
         <media-card
           v-if="movie"
           :item="movie"
-          :media="'movie'"
+          :media="'tv'"
         />
       </SwiperSlide>
     </template>

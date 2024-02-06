@@ -23,7 +23,7 @@ const movies = await getItemCollection('tv', 'top_rated')
         <media-card
           v-if="movie"
           :item="movie"
-          :media="'movie'"
+          :media="'tv'"
         />
       </SwiperSlide>
     </template>

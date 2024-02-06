@@ -13,10 +13,8 @@ function getCountAverage(average) {
   return (average * 5) / 10
 }
 
-import { useDisplay } from 'vuetify'
+import { useDisplay, useTheme } from 'vuetify'
 const { mobile } = useDisplay()
-
-import { useTheme } from 'vuetify'
 const theme = useTheme()
 
 </script>

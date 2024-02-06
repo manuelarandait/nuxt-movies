@@ -32,14 +32,12 @@ function getCountAverage(average) {
         </h2>
 
         <v-rating
-          hover
           readonly
           half-increments
           :length="5"
           size="small"
           :model-value="getCountAverage(tv.vote_average)"
           density="comfortable"
-          class="my-2"
         />
         <div class="text-grey mb-2">
           {{ parseFloat(tv.vote_average).toFixed(2) }} |  Reviews( {{ tv.vote_count }} )
