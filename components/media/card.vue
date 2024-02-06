@@ -47,6 +47,15 @@ function getCountAverage(average) {
             align="center"
             class="mx-0"
           >
+            <v-rating
+              :model-value="3"
+              half-increments
+              color="amber"
+              density="compact"
+              readonly
+              size="small"
+            />
+
             <div class="text-grey ms-4">
               {{ parseFloat(props.item.vote_average).toFixed(2) }} ({{ props.item.vote_count }})
             </div>
