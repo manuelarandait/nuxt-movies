@@ -17,7 +17,8 @@ export default defineNuxtConfig({
         },
         '@nuxtjs/eslint-module',
         'nuxt-swiper',
-        '@nuxt/image'
+        '@nuxt/image',
+        'nuxt-rating'
     ],
     vite: {
         vue: {

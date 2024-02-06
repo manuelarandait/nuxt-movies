@@ -43,18 +43,18 @@ function getCountAverage(average) {
           align="center"
           class="mx-0"
         >
-          <v-rating
-            :model-value="getCountAverage(props.item.vote_average)"
-            half-increments
-            color="amber"
-            density="compact"
-            readonly
-            size="small"
-          />
-
-          <div class="text-grey ms-4">
-            {{ parseFloat(props.item.vote_average).toFixed(2) }} ({{ props.item.vote_count }})
-          </div>
+          <v-col>
+            <NuxtRating
+              :read-only="true"
+              :rating-size="'20px'"
+              :rating-value="getCountAverage(props.item.vote_average)"
+            />
+          </v-col>
+          <v-col>
+            <div class="text-grey">
+              {{ parseFloat(props.item.vote_average).toFixed(2) }} ({{ props.item.vote_count }})
+            </div>
+          </v-col>
         </v-row>
       </v-card-text>
     </v-card>
