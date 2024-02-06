@@ -19,11 +19,11 @@ const onboarding = ref(0)
       md="3"
       lg="2"
     >
-          <nuxt-img
-            :src="`https://image.tmdb.org/t/p/original/${image.file_path}`"
-            :style="'width: 100%;'"
-            class="cursor-pointer"
-          />
+      <nuxt-img
+        :src="`https://image.tmdb.org/t/p/original/${image.file_path}`"
+        :style="'width: 100%;'"
+        class="cursor-pointer"
+      />
     </v-col>
   </v-row>
 </template>
