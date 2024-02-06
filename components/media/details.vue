@@ -11,7 +11,8 @@ const props = defineProps({
 })
 
 import { useDisplay } from 'vuetify'
-const { mobile } = useDisplay()
+const { mobile, name } = useDisplay()
+const slides = getSlides(name.value)
 
 const directors = props.item.credits?.crew.filter (job => job.job === 'Director')
 
@@ -20,20 +21,20 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
   <v-container fluid>
     <v-row>
       <v-col
+        v-if="!mobile"
         class="d-flex justify-right"
         cols="4"
         sm="3"
         offset-lg="1"
       >
         <nuxt-img
-          v-if="!mobile"
           height="450"
           :src="`https://image.tmdb.org/t/p/w500/${props.item.poster_path}`"
         />
       </v-col>
       <v-col
         cols="12"
-        sm="6"
+        lg="6"
       >
         <div
           class="d-flex flex-column"
@@ -223,7 +224,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
     </p>
     <Swiper
       :height="400"
-      :slides-per-view="mobile ? 1.3 : (props.item.credits?.cast.length < 7 ? props.item.credits?.cast.length : 7)"
+      :slides-per-view="slides"
       :loop="true"
       :autoplay="{
         delay: 8000,
@@ -244,19 +245,17 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
         :key="cast.id"
       >
         <NuxtLink :to="`/person/${cast.id}`">
-          <v-hover v-slot="{ isHovering, prop }">
+          <v-hover v-slot="{ isHovering, props }">
             <v-card
               class="ma-1 mb-2"
               :class="{ 'on-hover': isHovering }"
               height="auto"
-              width="200"
-              v-bind="prop"
-              :elevation="isHovering ? 20 : 0"
+              style="'width: 100%;'"
+              v-bind="props"
+              :elevation="isHovering ? 20 : 4"
             >
               <nuxt-img
-                cover
-                width="200"
-                height="auto"
+                :style="'width: 100%;'"
                 :src="`https://image.tmdb.org/t/p/w500/${cast.profile_path}`"
               />
 

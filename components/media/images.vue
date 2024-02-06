@@ -27,7 +27,8 @@ const onboarding = ref(0)
         v-for="image in images.backdrops"
         :key="image.id"
         cols="12"
-        sm="3"
+        md="6"
+        lg="2"
       >
         <v-dialog
           transition="dialog-bottom-transition"
@@ -74,7 +75,8 @@ const onboarding = ref(0)
         v-for="image in images.posters"
         :key="image.id"
         cols="6"
-        sm="2"
+        md="3"
+        lg="2"
       >
         <v-dialog
           transition="dialog-bottom-transition"

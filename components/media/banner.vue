@@ -56,7 +56,7 @@ const theme = useTheme()
       >
         {{ trending.results[0].release_date }}
       </div>
-      <h4 :class="mobile ? 'text-body-1' :'text-caption'">
+      <h4 :class="!mobile ? 'text-body-1' :'text-caption'">
         {{ trending.results[0].overview }}
       </h4>
       <v-dialog

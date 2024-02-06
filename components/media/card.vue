@@ -65,7 +65,6 @@ function getCountAverage(average) {
   </NuxtLink>
 </template>
 <style scoped>
-
 .v-card {
   transition: opacity .3s ease-in-out;
 }

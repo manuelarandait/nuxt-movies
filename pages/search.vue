@@ -16,7 +16,6 @@
   }
 
   import { useDisplay } from 'vuetify'
-  const { mobile } = useDisplay()
 
 </script>
 
@@ -46,7 +45,7 @@
           sm="2"
         >
           <NuxtLink
-            :to="`/movie/${movie.id}`"
+            :to="`/${movie.media_type}/${movie.id}`"
           >
             <v-hover v-slot="{ isHovering, props }">
               <v-card

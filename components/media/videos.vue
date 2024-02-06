@@ -17,7 +17,7 @@ const props = defineProps({
         v-for="video in props.item.videos.results"
         :key="video.id"
         cols="12"
-        sm="3"
+        md="6"
       >
         <v-dialog
           width="1080"
@@ -27,11 +27,10 @@ const props = defineProps({
           <template #activator="{ prop }">
             <v-hover v-slot="{ isHovering }">
               <nuxt-img
-                width="500"
-                height="200"
                 :src="`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`"
                 v-bind="prop"
                 class="cursor-pointer"
+                :style="'width: 100%;'"
               />
               <v-overlay
                 :model-value="isHovering"

@@ -31,7 +31,9 @@ export async function getItem( media: string, id: Number ) {
 export async function getPerson(id: string | RouteParamValue[]) {
     return await $fetch(`https://api.themoviedb.org/3/person/${id}?page=1&`, {
         params: {
-            language: 'es-ES'
+            language: 'es-ES',
+            append_to_response: 'images,combined_credits,external_ids',
+            include_image_language: 'en'
         },
         headers: {
             accept: 'application/json',
