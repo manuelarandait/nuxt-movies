@@ -21,34 +21,43 @@ function getCountAverage(average) {
   <NuxtLink
     :to="`/${props.media}/${props.item.id}`"
   >
-    <v-hover v-slot="{ isHovering, prop }">
-      <v-card
-        :class="{ 'on-hover': isHovering }"
-        height="auto"
+    <v-card
+      height="auto"
+      width="250"
+    >
+      <nuxt-img
+        cover
         width="250"
-        v-bind="prop"
-        :elevation="isHovering ? 20 : 4"
-      >
+        height="400"
+        :alt="props.item.title || props.item.name"
+        :src="`https://image.tmdb.org/t/p/w500/${props.item.poster_path}`"
+      />
+      <v-card-item>
+        <v-card-subtitle>
+          <span class="me-1">{{ props.media === 'movie' ? props.item.title : props.item.name }}</span>
+        </v-card-subtitle>
+      </v-card-item>
 
-        <v-card-item>
-          <v-card-subtitle>
-            <span class="me-1">{{ props.media === 'movie' ? props.item.title : props.item.name }}</span>
-          </v-card-subtitle>
-        </v-card-item>
+      <v-card-text>
+        <v-row
+          align="center"
+          class="mx-0"
+        >
+          <v-rating
+            :model-value="getCountAverage(props.item.vote_average)"
+            half-increments
+            color="amber"
+            density="compact"
+            readonly
+            size="small"
+          />
 
-        <v-card-text>
-          <v-row
-            align="center"
-            class="mx-0"
-          >
-
-            <div class="text-grey ms-4">
-              {{ parseFloat(props.item.vote_average).toFixed(2) }} ({{ props.item.vote_count }})
-            </div>
-          </v-row>
-        </v-card-text>
-      </v-card>
-    </v-hover>
+          <div class="text-grey ms-4">
+            {{ parseFloat(props.item.vote_average).toFixed(2) }} ({{ props.item.vote_count }})
+          </div>
+        </v-row>
+      </v-card-text>
+    </v-card>
   </NuxtLink>
 </template>
 <style scoped>

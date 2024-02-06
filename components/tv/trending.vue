@@ -1,46 +1,32 @@
 <script setup>
-const tvs = await getItemCollection('tv', 'popular')
-
-import { useDisplay } from 'vuetify'
-const { name } = useDisplay()
-const slides = getSlides(name.value)
-
+const props = defineProps({
+  title: {
+    type: String,
+    default: ''
+  }
+})
+const movies = await getItemCollection('tv', 'popular')
 </script>
 <template>
-  <div class="pa-2">
-    <p class="text-h5 my-4">
-      Series populares
-    </p>
-    <Swiper
-      :height="400"
-      :slides-per-view="slides"
-      :loop="true"
-      :autoplay="{
-        delay: 8000,
-        disableOnInteraction: true
-      }"
-      :creative-effect="{
-        prev: {
-          shadow: false,
-          translate: ['-20%', 0, -1]
-        },
-        next: {
-          translate: ['100%', 0, 0]
-        }
-      }"
-    >
+  <carousel-swiper>
+    <template #title>
+      <p class="text-h5 my-4">
+        {{ props.title }}
+      </p>
+    </template>
+    <template #swiperSlide>
       <SwiperSlide
-        v-for="(movie, idx) in tvs.results"
+        v-for="(movie, idx) in movies.results"
         :key="idx"
       >
         <media-card
           v-if="movie"
           :item="movie"
-          :media="'tv'"
+          :media="'movie'"
         />
       </SwiperSlide>
-    </Swiper>
-  </div>
+    </template>
+  </carousel-swiper>
 </template>
 <style scoped>
 

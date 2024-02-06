@@ -11,6 +11,9 @@ const tab = ref(null)
 const id = computed(() => props.id)
 const movie = await getItem( 'movie', Number(id.value))
 
+import { useDisplay } from 'vuetify'
+const { mobile } = useDisplay()
+
 function getCountAverage(average) {
   return (average * 5) / 10
 }

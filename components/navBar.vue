@@ -47,7 +47,7 @@ function toggleTheme () {
     </v-list>
     <template #append>
       <v-btn @click="toggleTheme">
-        <v-icon icon="mdi-theme-light-dark"></v-icon>
+        <v-icon icon="mdi-theme-light-dark" />
       </v-btn>
     </template>
   </v-navigation-drawer>
