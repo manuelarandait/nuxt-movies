@@ -2,7 +2,8 @@
 const tvs = await getItemCollection('tv', 'popular')
 
 import { useDisplay } from 'vuetify'
-const { mobile } = useDisplay()
+const { name } = useDisplay()
+const slides = getSlides(name.value)
 
 </script>
 <template>
@@ -12,7 +13,7 @@ const { mobile } = useDisplay()
     </p>
     <Swiper
       :height="400"
-      :slides-per-view="mobile ? 1.3 : 6"
+      :slides-per-view="slides"
       :loop="true"
       :autoplay="{
         delay: 8000,

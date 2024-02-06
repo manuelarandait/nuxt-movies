@@ -18,9 +18,11 @@ const { mobile } = useDisplay()
   <v-container fluid>
     <v-row class="my-2">
       <v-col
-        class="d-flex justify-right"
+        :class="mobile ? 'd-flex justify-center' : 'd-flex justify-right'"
         cols="12"
         sm="4"
+        md="6"
+        lg="3"
         offset-lg="1"
       >
         <nuxt-img
@@ -30,6 +32,8 @@ const { mobile } = useDisplay()
       </v-col>
       <v-col
         cols="12"
+        md="6"
+        lg="8"
         sm="7"
       >
         <div

@@ -68,7 +68,7 @@
                 <v-card-text>
                   <v-row
                     align="center"
-                    class="mx-0"
+                    class="mx-0 mb-1"
                   >
                     <v-rating
                       :model-value="getCountAverage(movie.vote_average)"
@@ -79,7 +79,7 @@
                       size="x-small"
                     />
 
-                    <div class="text-grey ms-4">
+                    <div class="text-grey ms-1">
                       {{ parseFloat(movie.vote_average).toFixed(2) }} ({{ movie.vote_count }})
                     </div>
                   </v-row>

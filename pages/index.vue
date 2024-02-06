@@ -1,16 +1,16 @@
 <script setup>
-
 </script>
 
 <template>
-  <div id="aux">
-    <media-banner media-type="movie" />
-    <v-container fluid>
-      <movie-trending />
-      <tv-trending />
-    </v-container>
-    
-    <main-footer />
+  <div id="media-main">
+    <client-only>
+      <media-banner media-type="movie" />
+      <v-container fluid>
+        <movie-trending title="Películas populares" />
+        <tv-trending />
+      </v-container>
+      <main-footer />
+    </client-only>
   </div>
 </template>
 <style scoped>

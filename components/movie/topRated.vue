@@ -1,34 +1,22 @@
 <script setup>
-const movies = await getItemCollection('movie', 'top_rated')
+const props = defineProps({
+  title: {
+    type: String,
+    default: ''
+  }
+})
 
-import { useDisplay } from 'vuetify'
-const { mobile } = useDisplay()
+const movies = await getItemCollection('movie', 'top_rated')
 </script>
 
 <template>
-  <div class="pa-2">
-    <p class="text-h5 my-4">
-      Películas mejor valoradas
-    </p>
-
-    <Swiper
-      :height="400"
-      :slides-per-view="mobile ? 1.3 : 6"
-      :loop="true"
-      :autoplay="{
-        delay: 8000,
-        disableOnInteraction: true
-      }"
-      :creative-effect="{
-        prev: {
-          shadow: false,
-          translate: ['-20%', 0, -1]
-        },
-        next: {
-          translate: ['100%', 0, 0]
-        }
-      }"
-    >
+  <carousel-swiper>
+    <template #title>
+      <p class="text-h5 my-4">
+        {{ props.title }}
+      </p>
+    </template>
+    <template #swiperSlide>
       <SwiperSlide
         v-for="(movie, idx) in movies.results"
         :key="idx"
@@ -39,8 +27,8 @@ const { mobile } = useDisplay()
           :media="'movie'"
         />
       </SwiperSlide>
-    </Swiper>
-  </div>
+    </template>
+  </carousel-swiper>
 </template>
 <style scoped>
 
