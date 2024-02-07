@@ -60,9 +60,15 @@ function toggleTheme () {
       </v-list-item>
     </v-list>
     <template #append>
-      <v-btn @click="toggleTheme">
-        <v-icon icon="mdi-theme-light-dark" />
-      </v-btn>
+      <v-list-item
+        class="d-flex ma-2 pa-2 my-auto align-center justify-center"
+      >
+        <v-icon
+          size="30"
+          icon="mdi-theme-light-dark"
+          @click="toggleTheme"
+        />
+      </v-list-item>
     </template>
   </v-navigation-drawer>
   <v-bottom-navigation

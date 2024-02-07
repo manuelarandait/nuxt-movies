@@ -97,6 +97,12 @@ function getCountAverage(average) {
           <media-videos :item="tv" />
         </v-window-item>
       </v-window>
+      <v-container fluid>
+        <tv-similar
+          :id="id"
+          title="Series similares"
+        />
+      </v-container>
     </v-card>
   </v-responsive>
 </template>

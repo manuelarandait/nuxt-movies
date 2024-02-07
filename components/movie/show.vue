@@ -101,6 +101,12 @@ function getCountAverage(average) {
           </v-window-item>
         </v-window>
       </v-card-text>
+      <v-container fluid>
+        <movie-similar
+          :id="id"
+          title="Películas similares"
+        />
+      </v-container>
     </v-card>
   </v-responsive>
 </template>

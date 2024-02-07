@@ -52,6 +52,10 @@ export async function getItem( media: string, id: Number ) {
     return fetchTMDB(`https://api.themoviedb.org/3/${media}/${id}?page=1`)
 }
 
+export async function getItemSimilar( media: string, id: Number ) {
+    return fetchTMDB(`https://api.themoviedb.org/3/${media}/${id}/similar?page=1`)
+}
+
 export async function getPerson(id: string | RouteParamValue[]) {
     return await $fetch(`https://api.themoviedb.org/3/person/${id}?page=1&`, {
         params: {

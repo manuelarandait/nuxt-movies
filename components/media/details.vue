@@ -83,6 +83,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
                     :key="productor.id"
                     size="x-small"
                     label
+                    class="mx-1"
                   >
                     <p> {{ productor.name }}</p>
                   </v-chip>
@@ -99,7 +100,13 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
                   cols="6"
                   sm="8"
                 >
-                  <p> {{ props.item.original_language }}</p>
+                  <v-chip
+                    size="x-small"
+                    label
+                    class="mx-1"
+                  >
+                    <p> {{ props.item.original_language }}</p>
+                  </v-chip>
                 </v-col>
               </v-row>
               <v-row>
@@ -119,6 +126,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
                     :key="director.id"
                     size="x-small"
                     label
+                    class="mx-1"
                   >
                     <p> {{ director.name }}</p>
                   </v-chip>
@@ -207,6 +215,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
                     :key="genre.id"
                     size="x-small"
                     label
+                    class="mx-1"
                   >
                     <p> {{ genre.name }}</p>
                   </v-chip>
@@ -245,30 +254,28 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
         :key="cast.id"
       >
         <NuxtLink :to="`/person/${cast.id}`">
-          <v-hover v-slot="{ isHovering, props }">
-            <v-card
-              class="ma-1 mb-2"
-              :class="{ 'on-hover': isHovering }"
-              height="auto"
-              style="'width: 100%;'"
-              v-bind="props"
-              :elevation="isHovering ? 20 : 4"
-            >
-              <nuxt-img
-                :style="'width: 100%;'"
-                :src="`https://image.tmdb.org/t/p/w500/${cast.profile_path}`"
-              />
+          <v-card
+            class="ma-1 mb-2"
+            height="auto"
+            style="'width: 100%;'"
+            elevation="4"
+          >
+            <nuxt-img
+              v-if="cast.profile_path"
+              :style="'width: 100% ; background-color: black;'"
+              loading="lazy"
+              :src="`https://image.tmdb.org/t/p/w500/${cast.profile_path}`"
+            />
 
-              <v-card-item>
-                <v-card-subtitle>
-                  <span class="me-1">{{ cast.name }}</span>
-                </v-card-subtitle>
-              </v-card-item>
-              <div class="text-grey ms-4 mb-2">
-                <span class="me-1">{{ cast.character }}</span>
-              </div>
-            </v-card>
-          </v-hover>
+            <v-card-item>
+              <v-card-subtitle>
+                <span class="me-1">{{ cast.name }}</span>
+              </v-card-subtitle>
+            </v-card-item>
+            <div class="text-grey ms-4 mb-2">
+              <span class="me-1">{{ cast.character }}</span>
+            </div>
+          </v-card>
         </NuxtLink>
       </SwiperSlide>
     </Swiper>

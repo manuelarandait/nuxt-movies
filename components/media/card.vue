@@ -25,8 +25,10 @@ function getCountAverage(average) {
       height="auto"
       width="250"
       class="my-2"
+      elevation="4"
     >
-      <nuxt-img
+      <nuxt-img 
+        sizes="100vw"
         cover
         width="250"
         height="400"
