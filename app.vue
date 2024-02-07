@@ -7,8 +7,7 @@ useHead({
   title: 'Manuel Aranda - Movies',
   titleTemplate: title => title !== 'Nuxt Movies' ? `${title} · Nuxt Movies` : title,
   meta: [
-    { name: 'description', content: 'A TMDB client built with Nuxt' },
-    { property: 'og:image', content: 'https://movies.nuxt.space/social-card.png' },
+    { name: 'description', content: 'A media website built with Nuxt 3 🎬' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:site', content: '@manuelaranda9' },
     { name: 'twitter:creator', content: '@manuelaranda9' },
