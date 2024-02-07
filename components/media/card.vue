@@ -24,12 +24,11 @@ function getCountAverage(average) {
     <v-card
       height="auto"
       width="250"
-      class="my-2"
+      class="ma-1 mb-2"
       elevation="4"
     >
-      <nuxt-img 
-        sizes="100vw"
-        cover
+      <nuxt-img
+        :style="'width: 100% ; background-color: black;'"
         width="250"
         height="400"
         :alt="props.item.title || props.item.name"

@@ -257,13 +257,14 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
           <v-card
             class="ma-1 mb-2"
             height="auto"
+            width="250"
             style="'width: 100%;'"
             elevation="4"
           >
             <nuxt-img
-              v-if="cast.profile_path"
               :style="'width: 100% ; background-color: black;'"
-              loading="lazy"
+              width="250"
+              height="400"
               :src="`https://image.tmdb.org/t/p/w500/${cast.profile_path}`"
             />
 
