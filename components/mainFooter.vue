@@ -1,10 +1,9 @@
 <script setup>
-const icons = [ 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram' ]
 </script>
 
 <template>
   <v-footer
-    class="bg-black text-left d-flex flex-column"
+    class="text-left d-flex flex-column"
   >
     <p class="my-2">
       Made with Nuxt
@@ -12,13 +11,36 @@ const icons = [ 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram' ]
     <v-divider />
 
     <div>
-      <v-btn
-        v-for="icon in icons"
-        :key="icon"
-        class="mx-4"
-        :icon="icon"
-        variant="text"
-      />
+      <a
+        href="https://twitter.com/ManuAranda9"
+        target="_blank"
+        title="Twitter Manuel Aranda"
+      >
+        <v-icon
+          icon="mdi-twitter"
+          class="ma-2"
+        />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/manuel-aranda-rosales/"
+        target="_blank"
+        title="LinkedIn Manuel Aranda"
+      >
+        <v-icon
+          icon="mdi-linkedin"
+          class="ma-2"
+        />
+      </a>
+      <a
+        href="https://www.instagram.com/manusoberbia/"
+        target="_blank"
+        title="Instagram Manuel Aranda"
+      >
+        <v-icon
+          icon="mdi-instagram"
+          class="ma-2"
+        />
+      </a>
     </div>
 
     <v-divider class="my-2" />

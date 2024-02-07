@@ -1,6 +1,7 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
+    css: ['~/assets/css/main.scss'],
     build: {
         transpile: ['vuetify']
     },
@@ -18,13 +19,19 @@ export default defineNuxtConfig({
         '@nuxtjs/eslint-module',
         'nuxt-swiper',
         '@nuxt/image',
-        'nuxt-rating'
+        'nuxt-rating',
+        '@nuxtjs/google-fonts'
     ],
     vite: {
         vue: {
             template: {
                 transformAssetUrls,
             },
-        },
+        }
+    },
+    googleFonts: {
+        families: {
+            'Lato': true
+        }
     }
 })

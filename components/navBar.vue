@@ -1,11 +1,9 @@
 <script setup>
-import { useDisplay } from 'vuetify'
-
-const { mobile } = useDisplay()
 const value = ref(1)
 
-import { useTheme } from 'vuetify'
+import { useTheme, useDisplay } from 'vuetify'
 const theme = useTheme()
+const { mobile } = useDisplay()
 
 function toggleTheme () {
   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
@@ -15,11 +13,10 @@ function toggleTheme () {
 <template>
   <v-navigation-drawer
     app
-    rail
-    class="text-center"
+    width="80"
   >
     <v-list
-      class="d-flex align-center flex-column"
+      class="d-flex align-center justify-center flex-column"
       density="compact"
       nav
       height="100%"
@@ -27,23 +24,40 @@ function toggleTheme () {
       <v-list-item
         class="ma-2 pa-2 my-auto"
         to="/"
-        prepend-icon="mdi-home"
-      />
+      >
+        <v-icon
+          size="30"
+          icon="mdi-home"
+        />
+      </v-list-item>
       <v-list-item
         class="ma-2 pa-2 my-auto"
         to="/movie"
-        prepend-icon="mdi-movie"
-      />
+      >
+        <v-icon
+          size="30"
+          icon="mdi-movie"
+        />
+      </v-list-item>
       <v-list-item
+        size="30"
         class="ma-2 pa-2 my-auto"
         to="/tv"
-        prepend-icon="mdi-television-classic"
-      />
+      >
+        <v-icon
+          size="30"
+          icon="mdi-television-classic"
+        />
+      </v-list-item>
       <v-list-item
         class="ma-2 pa-2 my-auto"
         to="/search"
-        prepend-icon="mdi-magnify"
-      />
+      >
+        <v-icon
+          size="30"
+          icon="mdi-magnify"
+        />
+      </v-list-item>
     </v-list>
     <template #append>
       <v-btn @click="toggleTheme">
@@ -81,3 +95,5 @@ function toggleTheme () {
     </v-btn>
   </v-bottom-navigation>
 </template>
+<style scoped>
+</style>

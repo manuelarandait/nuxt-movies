@@ -24,6 +24,7 @@ function getCountAverage(average) {
     <v-card
       height="auto"
       width="250"
+      class="my-2"
     >
       <nuxt-img
         cover
@@ -74,3 +75,4 @@ a:link, a:visited, a:active {
 }
 
 </style>
+
