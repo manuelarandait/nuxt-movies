@@ -72,7 +72,7 @@ function toggleTheme () {
     </template>
   </v-navigation-drawer>
   <v-bottom-navigation
-    v-if="mobile"
+    v-if="mobile.value"
     v-model="value"
     app
     color="teal"

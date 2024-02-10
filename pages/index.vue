@@ -2,14 +2,12 @@
 </script>
 
 <template>
-  <div id="media-main">
-    <media-banner media-type="movie" />
-    <v-container fluid>
-      <movie-trending title="Películas populares" />
-      <tv-trending />
-    </v-container>
-    <main-footer />
-  </div>
+  <media-banner media-type="movie" />
+  <v-container fluid>
+    <movie-trending title="Películas populares" />
+    <tv-trending />
+  </v-container>
+  <main-footer />
 </template>
 <style scoped>
 
