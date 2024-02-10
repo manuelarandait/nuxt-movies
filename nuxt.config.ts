@@ -2,9 +2,6 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
     ssr: false,
-    routeRules: {
-        '/**':  { cache: { swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true } },
-    },
     css: ['~/assets/css/main.scss'],
     build: {
         transpile: ['vuetify']

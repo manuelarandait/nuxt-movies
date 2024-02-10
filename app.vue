@@ -25,7 +25,9 @@ useHead({
 <template>
   <v-app>
     <NuxtLoadingIndicator />
-    <NuxtPage />
-    <nav-bar />
+    <v-main>
+      <NuxtPage />
+      <nav-bar />
+    </v-main>
   </v-app>
 </template>
