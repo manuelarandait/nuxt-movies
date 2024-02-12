@@ -32,6 +32,7 @@ function getCountAverage(average) {
         width="250"
         height="400"
         sizes="100vw"
+        loading="lazy"
         :alt="props.item.title || props.item.name"
         :src="`https://image.tmdb.org/t/p/w400${props.item.poster_path}`"
       />
