@@ -75,7 +75,7 @@ function toggleTheme () {
     v-if="mobile"
     v-model="value"
     app
-    color="teal"
+    color="primary"
     grow
     height="70"
   >

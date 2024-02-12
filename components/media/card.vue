@@ -33,7 +33,7 @@ function getCountAverage(average) {
         height="400"
         sizes="100vw"
         :alt="props.item.title || props.item.name"
-        :src="`https://image.tmdb.org/t/p/w500${props.item.poster_path}`"
+        :src="`https://image.tmdb.org/t/p/w300${props.item.poster_path}`"
       />
       <div class="text-body-2 text-medium-emphasis ma-1 pa-2 text-truncate">
         <span class="me-1">{{ props.media === 'movie' ? props.item.title : props.item.name }}</span>
