@@ -47,11 +47,10 @@
               <v-card
                 :class="{ 'on-hover': isHovering }"
                 v-bind="props"
-                height="100%"
                 :elevation="isHovering ? 20 : 0"
               >
                 <nuxt-img
-                  :style="'width: 100%;'"
+                  :style="'width: 100%; height: 300px; background-color: black;'"
                   :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
                 />
                 <v-card-item>
