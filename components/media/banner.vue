@@ -21,12 +21,12 @@ const theme = useTheme()
 
 <template>
   <v-parallax
-    src="https://movies-proxy.vercel.app/ipx/f_webp&s_1220x659/tmdb/pWsD91G2R1Da3AKM3ymr3UoIfRb.jpg"
+    :src="`https://image.tmdb.org/t/p/original${trending.results[0].backdrop_path}`"
     :gradient="theme.global.current.value.dark ? 'to left, rgba(100,115,201,.33), 20%, rgba(0,0,0,1)' : 'to left, rgba(100,115,201,.33), rgba(255,255,255,1)'"
     height="600"
     :style="'aspect-ratio: 25/9; width: 100%;'"
     :alt="trending.results[0].title || trending.results[0].name"
-    >
+  >
     <div
       class="d-flex flex-column fill-height justify-center pa-6 offset-1 fade-in-text"
       style="max-width: 70%;"
