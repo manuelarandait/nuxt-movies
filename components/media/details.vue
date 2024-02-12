@@ -254,7 +254,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
         :key="cast.id"
       >
         <NuxtLink :to="`/person/${cast.id}`">
-          <v-card
+          <v-sheet
             class="ma-1 mb-2"
             height="auto"
             width="250"
@@ -274,7 +274,7 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
             <div class="text-body-2 text-medium-emphasis ma-1 pa-2 text-truncate">
               <span class="me-1">{{ cast.character }}</span>
             </div>
-          </v-card>
+          </v-sheet>
         </NuxtLink>
       </SwiperSlide>
     </Swiper>

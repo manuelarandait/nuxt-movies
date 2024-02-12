@@ -21,7 +21,7 @@ function getCountAverage(average) {
   <NuxtLink
     :to="`/${props.media}/${props.item.id}`"
   >
-    <v-card
+    <v-sheet
       height="auto"
       width="250"
       class="ma-1 mb-2"
@@ -50,15 +50,15 @@ function getCountAverage(average) {
           {{ parseFloat(props.item.vote_average).toFixed(2) }} ({{ props.item.vote_count }})
         </div>
       </div>
-    </v-card>
+    </v-sheet>
   </NuxtLink>
 </template>
 <style scoped>
-.v-card {
+.v-sheet {
   transition: opacity .3s ease-in-out;
 }
 
-.v-card:hover {
+.v-sheet:hover {
   opacity: 0.5;
 }
 
