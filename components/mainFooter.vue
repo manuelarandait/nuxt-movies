@@ -1,4 +1,10 @@
 <script setup>
+import { useTheme } from 'vuetify'
+const theme = useTheme()
+
+const color = computed (()  => {
+  return theme.global.name.value
+})
 </script>
 
 <template>
@@ -19,6 +25,7 @@
         <v-icon
           icon="mdi-twitter"
           class="ma-2"
+          :class="color === 'dark' ? 'text-white' : 'text-black' "
         />
       </a>
       <a
@@ -29,6 +36,7 @@
         <v-icon
           icon="mdi-linkedin"
           class="ma-2"
+          :class="color === 'dark' ? 'text-white' : 'text-black' "
         />
       </a>
       <a
@@ -39,6 +47,7 @@
         <v-icon
           icon="mdi-instagram"
           class="ma-2"
+          :class="color === 'dark' ? 'text-white' : 'text-black' "
         />
       </a>
     </div>
