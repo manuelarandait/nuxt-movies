@@ -27,6 +27,7 @@ function toggleTheme () {
       >
         <v-icon
           size="30"
+          title="Inicio"
           icon="mdi-home"
         />
       </v-list-item>
@@ -36,6 +37,7 @@ function toggleTheme () {
       >
         <v-icon
           size="30"
+          title="Películas"
           icon="mdi-movie"
         />
       </v-list-item>
@@ -46,6 +48,7 @@ function toggleTheme () {
       >
         <v-icon
           size="30"
+          title="Series de televisión"
           icon="mdi-television-classic"
         />
       </v-list-item>
@@ -55,6 +58,7 @@ function toggleTheme () {
       >
         <v-icon
           size="30"
+          title="Búsqueda"
           icon="mdi-magnify"
         />
       </v-list-item>

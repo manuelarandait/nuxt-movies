@@ -25,16 +25,17 @@ const theme = useTheme()
     :gradient="theme.global.current.value.dark ? 'to left, rgba(100,115,201,.33), 20%, rgba(0,0,0,1)' : 'to left, rgba(100,115,201,.33), rgba(255,255,255,1)'"
     height="600"
     :style="'aspect-ratio: 25/9; width: 100%;'"
+    :alt="trending.results[0].title || trending.results[0].name"
   >
     <div
       class="d-flex flex-column fill-height justify-center pa-6 offset-1 fade-in-text"
       style="max-width: 70%;"
     >
-      <h2
+      <h4
         class="text-h4 font-weight-thin mb-4"
       >
         {{ props.mediaType === 'movie' ? trending.results[0].title : trending.results[0].name }}
-      </h2>
+      </h4>
       <NuxtRating
         :read-only="true"
         :rating-size="'30px'"
@@ -51,9 +52,9 @@ const theme = useTheme()
       >
         {{ trending.results[0].release_date }}
       </div>
-      <h4 :class="!mobile.value ? 'text-body-1' :'text-caption'">
+      <p :class="!mobile.value ? 'text-body-1' :'text-caption'">
         {{ trending.results[0].overview }}
-      </h4>
+      </p>
       <v-dialog
         v-if="props.mediaType === 'movie'"
         width="1080"
@@ -68,6 +69,7 @@ const theme = useTheme()
             width="200"
             rounded="0"
             variant="flat"
+            title="Ver trailer"
           >
             Ver trailer
           </v-btn>
