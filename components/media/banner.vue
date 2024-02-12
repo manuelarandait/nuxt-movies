@@ -73,26 +73,12 @@ const theme = useTheme()
           </v-btn>
         </template>
 
-        <template #default="{ isActive }">
-          <v-card>
-            <v-toolbar>
-              <v-spacer />
-              <v-btn
-                icon
-                dark
-                @click="isActive.value = false "
-              >
-                <v-icon>mdi-close</v-icon>
-              </v-btn>
-            </v-toolbar>
-            <v-card-text>
-              <iframe
-                :src="`https://www.youtube.com/embed/${topMovie.videos?.results[0]?.key}?rel=0&showinfo=0&autoplay=0`"
-                width="100%"
-                height="600"
-              />
-            </v-card-text>
-          </v-card>
+        <template #default>
+          <iframe
+            :src="`https://www.youtube.com/embed/${topMovie.videos?.results[0]?.key}?rel=0&showinfo=0&autoplay=0`"
+            width="100%"
+            height="600"
+          />
         </template>
       </v-dialog>
     </div>

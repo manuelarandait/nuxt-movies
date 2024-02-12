@@ -268,12 +268,10 @@ const directors = props.item.credits?.crew.filter (job => job.job === 'Director'
               :src="`https://image.tmdb.org/t/p/w500/${cast.profile_path}`"
             />
 
-            <v-card-item>
-              <v-card-subtitle>
-                <span class="me-1">{{ cast.name }}</span>
-              </v-card-subtitle>
-            </v-card-item>
-            <div class="text-grey ms-4 mb-2">
+            <div class="text-body-2 text-medium-emphasis ma-1 pa-2 text-truncate">
+              <span class="me-1">{{ cast.name }}</span>
+            </div>
+            <div class="text-body-2 text-medium-emphasis ma-1 pa-2 text-truncate">
               <span class="me-1">{{ cast.character }}</span>
             </div>
           </v-card>
