@@ -23,10 +23,12 @@ useHead({
 </script>
 
 <template>
-  <v-app>
-    <v-main>
-      <NuxtPage />
-      <nav-bar />
-    </v-main>
-  </v-app>
+  <DelayHydration>
+    <v-app>
+      <v-main>
+        <NuxtPage />
+        <nav-bar />
+      </v-main>
+    </v-app>
+  </DelayHydration>
 </template>

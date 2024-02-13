@@ -4,7 +4,6 @@ const value = ref(1)
 import { useDisplay } from 'vuetify'
 const { mobile } = useDisplay()
 
-
 </script>
 
 <template>
@@ -75,36 +74,36 @@ const { mobile } = useDisplay()
         </template>
       </v-list-item>
     </v-list>
-    <v-bottom-navigation
-      v-if="mobile"
-      v-model="value"
-      app
-      color="primary"
-      grow
-      height="70"
-    >
-      <v-btn to="/">
-        <v-icon size="30">
-          mdi-home
-        </v-icon>
-      </v-btn>
-      <v-btn to="/movie">
-        <v-icon size="30">
-          mdi-movie
-        </v-icon>
-      </v-btn>
-      <v-btn to="/tv">
-        <v-icon size="30">
-          mdi-television-classic
-        </v-icon>
-      </v-btn>
-      <v-btn to="/search">
-        <v-icon size="30">
-          mdi-magnify
-        </v-icon>
-      </v-btn>
-    </v-bottom-navigation>
   </v-navigation-drawer>
+  <v-bottom-navigation
+    v-if="mobile"
+    v-model="value"
+    app
+    color="primary"
+    grow
+    height="70"
+  >
+    <v-btn to="/">
+      <v-icon size="30">
+        mdi-home
+      </v-icon>
+    </v-btn>
+    <v-btn to="/movie">
+      <v-icon size="30">
+        mdi-movie
+      </v-icon>
+    </v-btn>
+    <v-btn to="/tv">
+      <v-icon size="30">
+        mdi-television-classic
+      </v-icon>
+    </v-btn>
+    <v-btn to="/search">
+      <v-icon size="30">
+        mdi-magnify
+      </v-icon>
+    </v-btn>
+  </v-bottom-navigation>
 </template>
 <style scoped>
 
