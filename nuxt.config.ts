@@ -21,7 +21,8 @@ export default defineNuxtConfig({
         'nuxt-swiper',
         '@nuxt/image',
         'nuxt-rating',
-        '@nuxtjs/google-fonts'
+        '@nuxtjs/google-fonts',
+        'nuxt-delay-hydration',
     ],
     vite: {
         vue: {
