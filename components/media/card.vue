@@ -44,6 +44,7 @@ function getCountAverage(average) {
         <NuxtRating
           :read-only="true"
           :rating-size="'20px'"
+          :active-color="'#007aff'"
           :rating-value="getCountAverage(props.item.vote_average)"
         />
 
