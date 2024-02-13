@@ -2,12 +2,14 @@
 </script>
 
 <template>
-  <media-banner media-type="movie" />
-  <v-container fluid>
-    <movie-trending title="Películas populares" />
-    <tv-trending />
-  </v-container>
-  <main-footer />
+  <DelayHydration>
+    <media-banner media-type="movie" />
+    <v-container fluid>
+      <movie-trending title="Películas populares" />
+      <tv-trending />
+    </v-container>
+    <main-footer />
+  </DelayHydration>
 </template>
 <style scoped>
 
